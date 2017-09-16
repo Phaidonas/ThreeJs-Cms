@@ -74,10 +74,12 @@ if ( isset( $data['content'] ) ) $this->content = $data['content'];
 
  public static function getList( $numRows=1000000, $order="publicationDate DESC" ) {
    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
-   $link = mysqli_connect(DB_USERNAME, DB_PASSWORD, DB_DSN);
+
+  $conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
    $sql = "SELECT SQL_CALC_FOUND_ROWS *, UNIX_TIMESTAMP(publicationDate) AS publicationDate FROM articles
-           ORDER BY " . $link->real_escape_string($order) . " LIMIT :numRows";
+          LIMIT :numRows";
 
    $st = $conn->prepare( $sql );
    $st->bindValue( ":numRows", $numRows, PDO::PARAM_INT );
