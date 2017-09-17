@@ -12,4 +12,10 @@ Made the php work.
 
 Works to do:
 
+Mayor:
 Make json work with javascript at Articles.php or find a better way managing php loop to js.
+
+
+Minor:
+
+Clean the css and html.
