@@ -32,7 +32,7 @@ function viewArticle() {
 
   $results = array();
   $results['article'] = Article::getById( (int)$_GET["articleId"] );
-  $results['pageTitle'] = $results['article']->title . " | Widget News";
+  $results['pageTitle'] = $results['article']->title . " | Threejs Cms";
   require( TEMPLATE_PATH . "/viewArticle.php" );
 }
 
@@ -41,7 +41,7 @@ function homepage() {
   $data = Article::getList( HOMEPAGE_NUM_ARTICLES );
   $results['articles'] = $data['results'];
   $results['totalRows'] = $data['totalRows'];
-  $results['pageTitle'] = "Widget News";
+  $results['pageTitle'] = "Threejs Cms";
   require( TEMPLATE_PATH . "/homepage.php" );
 }
 

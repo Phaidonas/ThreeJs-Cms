@@ -17,6 +17,8 @@
     );
 ?>
 
+<?php $stringJSON = json_encode($data);?>
+
 <?php } ?>
 
       </ul>
@@ -28,11 +30,10 @@ var WIDTH  = window.innerWidth;
 var HEIGHT = window.innerHeight;
 
 var SPEED = 0.01;
+var mesh;
+// Convert JSON String to JavaScript Object
+  var Articles = [<?php echo $stringJSON; ?>];
 
-
-
-
-var  Articles = <?php print json_encode($data); ?>;
 
 function init() {
     scene = new THREE.Scene();
@@ -45,9 +46,11 @@ function init() {
 }
 
 function initCamera() {
-    camera = new THREE.PerspectiveCamera(70, WIDTH / HEIGHT, 1, 10);
-    camera.position.set(0, 3.5, 5);
-    camera.lookAt(scene.position);
+  camera = new THREE.PerspectiveCamera(70, WIDTH / HEIGHT, 1, 1000);
+  camera.position.y = 150;
+	camera.position.z = 350;
+	camera.position.y = 150;
+
 }
 
 function initRenderer() {
@@ -56,37 +59,39 @@ function initRenderer() {
 }
 
 function addGeometry() {
-    var geometry = new THREE.Mesh(new THREE.CubeGeometry(10, 10, 10));
-    var material = new THREE.MeshNormalMaterial();
-    console.log(Articles.length);
-for (var i=0; i < Articles.length; i++){
-  var mesh = new THREE.Mesh( geometry, material );
-     mesh.position.x = ( Math.random() - 0.5 ) * 1000;
-     mesh.position.y = ( Math.random() - 0.5 ) * 1000;
-     mesh.position.z = ( Math.random() - 0.5 ) * 1000;
+    var geometry = new THREE.BoxBufferGeometry(25, 25, 25);
+    var material = new THREE.MeshBasicMaterial({color:0x00ff44});
+    mesh = new THREE.Mesh( geometry, material );
+
+for(var i = 0; i < Articles.length; i += 1){
+
+
+    mesh.position.y =Math.random() * ((HEIGHT-10) - (HEIGHT+10));
+    mesh.position.x =Math.random() * ((HEIGHT-10) - (HEIGHT+10));
+
+
+
      mesh.updateMatrix();
      mesh.matrixAutoUpdate = false;
      scene.add( mesh );
-}
-
 
 }
 
-/*function rotateCube() {
+console.log(Articles.length);
+
+
+}
+
+function rotateCube() {
     mesh.rotation.x -= SPEED * 2;
     mesh.rotation.y -= SPEED;
     mesh.rotation.z -= SPEED * 3;
-}*/
+}
 
 function render() {
     requestAnimationFrame(render);
-    //rotateCube();
+    rotateCube();
     renderer.render(scene, camera);
-
-    for( i in Articles ) {
-    console.log( Articles[i].length );
-    //console.log( "length: "+Articles.length );
-  }
 }
 
 init();

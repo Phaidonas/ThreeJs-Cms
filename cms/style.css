@@ -2,8 +2,8 @@
 
 body {
   margin: 0;
-  color: #333;
-  background-color: #00a0b0;
+  color: #e2e1e1;
+  background-color: #ffffff;
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   line-height: 1.5em;
 }
@@ -19,19 +19,11 @@ body {
 }
 
 
-/* The logo and footer */
 
-#logo {
-  display: block;
-  width: 300px;
-  padding: 0 660px 20px 0;
-  border: none;
-  border-bottom: 1px solid #00a0b0;
-  margin-bottom: 40px;
-}
+
 
 #footer {
-  border-top: 1px solid #00a0b0;
+  border-top: 1px solid #ffffff;
   margin-top: 40px;
   padding: 20px 0 0 0;
   font-size: .8em;
@@ -41,13 +33,13 @@ body {
 /* Headings */
 
 h1 {
-  color: #eb6841;
+  color: #4b4b4b;
   margin-bottom: 30px;
   line-height: 1.2em;
 }
 
 h2, h2 a {
-  color: #edc951;
+  color: #4b4b4b;
 }
 
 h2 a {
@@ -69,7 +61,7 @@ h2 a {
 
 .pubDate {
   font-size: .8em;
-  color: #eb6841;
+  color: #bbbbbb;
   text-transform: uppercase;
 }
 
@@ -112,9 +104,7 @@ form {
   overflow: auto;
   background: #fff4cf;
   border: 1px solid #666;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
+  ;
   -moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
   -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
   box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
@@ -163,9 +153,8 @@ input, select, textarea {
 
 input, textarea, .date {
   border: 2px solid #666;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
+
+
   background: #fff;
 }
 
@@ -195,7 +184,7 @@ textarea#content {
 /* Place a border around focused fields */
 
 form *:focus {
-  border: 2px solid #7c412b;
+  border: 2px solid #c2c2c2;
   outline: none;
 }
 
